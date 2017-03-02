@@ -6,8 +6,8 @@ const actions ={
   @action changeWorkAttrib(attr,v){
     work[attr] = v.target.value
   },
-  @action changeName(){
-    session.token.name = 'Manuel' 
+  @action changeStatus(){
+    session.status = 'DOOOONE' 
   }
 }
 

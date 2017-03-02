@@ -48,6 +48,7 @@ export default () => ({
   },
   devServer: {
     hot: true,
+    historyApiFallback: true
   },
   resolve: {
     extensions: [ '.js', '.jsx'],

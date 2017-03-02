@@ -7,21 +7,26 @@ import App from './components/App'
 
 import stores from './stores'
 import {general} from './actions'
+import routes from './routing/routes'
 
 useStrict(true)
 
-// Components
-//const App= ()=> <div>JJJJJJJJJJJUaaaI</div>
 
-setTimeout(()=> general.changeName(), 4000)
+//<RequireAuth>
+//  <App />
+//</RequireAuth>
+
 function renderApp(){
   ReactDOM.render(
     <Provider {...stores}>
-      <App />
+      {routes}
     </Provider>
     , document.getElementById('main'));  
 }
 renderApp()
+
+setTimeout(()=> general.changeStatus(), 4000)
+
 
 if(module.hot){
   module.hot.accept(App, renderApp)
