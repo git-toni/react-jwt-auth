@@ -42,7 +42,12 @@ export default () => ({
       },
       {
         test: /\.(css|scss|sass)$/,
-        loader: 'style!css!sass',
+        //loader: 'style-loader!css-loader!sass-loader',
+        use:[
+          'style-loader',
+          'css-loader',
+          'sass-loader',
+        ]
       },
     ]
   },

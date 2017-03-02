@@ -1,0 +1,9 @@
+div#notifications{
+  position:fixed !important;
+  width: 25% !important;
+  right: 1em;
+  div.notification{
+    opacity: 0.7;
+    //border: 3px solid blue !important;
+  }
+}

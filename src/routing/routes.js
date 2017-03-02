@@ -17,6 +17,7 @@ const routes =(
       <IndexRoute component={App}/>
       <Route path="haa" component={()=> <div>HOLA</div>} />
       <Route path="noway" component={RequireAuth(Dummy)} />
+      <Route path="dummy" component={Dummy} />
     </Route>
   </Router>
 )

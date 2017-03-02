@@ -2,7 +2,10 @@ import {observable,  computed} from 'mobx';
 
 class UiStore{
   @observable errors = []
-  @observable notifications = []
+  @observable notifications = [
+    {type:'error',content:'Hola que tal'},
+    {type:'error',content:'nono noasdaosd asd jashdo'},
+  ]
 
 
   get asJS(){

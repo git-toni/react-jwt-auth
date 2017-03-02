@@ -8,10 +8,8 @@ class App extends Component{
   }
   render(){
     const {session} = this.props
-    console.log(session.userData)
     return(
       <div>
-        OMGOMGOMGOMG
         <br/>
         {session.userData.name}
         <br/>

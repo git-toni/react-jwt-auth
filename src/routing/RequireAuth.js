@@ -30,7 +30,11 @@ const RequireAuth = (ToBeComposed)=>{
       this.checkAuth()
     }
     checkAuth(){
-      isAuthenticated()
+      console.log('IM CHECKING AUTH')
+      if (!isAuthenticated()){
+        console.log('WRONG OR EXPIRED')
+        browserHistory.push('/dummy')
+      }
       //if(session.token.name !== 'LOLI'){
       //  console.log('HEY THS IS NOT LOLI GUEY')
       //  //browserHistory.push('/dummy')
