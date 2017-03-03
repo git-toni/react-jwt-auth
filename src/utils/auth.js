@@ -39,9 +39,21 @@ function returnLogin(){
   })
   return p
 }
+function isSelf(userId){
+  let isValid = false
+  if(!!session.token){
+    let decoded = decodeToken(session.token)
+    let user = JSON.parse(decoded.user)
+    console.log('user ',user)
+    isValid = (+ userId) === (+ user.id)
+  }
+  //console.log('decoded exp and NOW',decoded.exp,now,isSmaller)
+  return isValid
+}
 
 export {
   isAuthenticated,
   decodeToken,
-  login
+  isSelf,
+  login,
 }

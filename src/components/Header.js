@@ -16,7 +16,7 @@ class Header extends Component{
             </a>
             <IndexLink to='/' className="nav-item is-tab is-hidden-mobile is-active">Home</IndexLink>
             <Link to='/haa' className="nav-item is-tab is-hidden-mobile">HaaFree</Link>
-            <Link to='/noway' className="nav-item is-tab is-hidden-mobile">NowayReqAu</Link>
+            <Link to='/users' className="nav-item is-tab is-hidden-mobile">Users</Link>
             <Link to='/dummy' className="nav-item is-tab is-hidden-mobile">Dummy</Link>
           </div>
           <span className="nav-toggle">

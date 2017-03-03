@@ -2,6 +2,11 @@ import React,{Component} from 'react';
 import {observer, inject} from 'mobx-react';
 import {notifications} from '../actions'
 
+let typeclass = {
+  error: 'danger',
+  info: 'primary',
+  success: 'success'
+}
 @inject('ui') @observer
 class Notifications extends Component{
   constructor(props){
@@ -12,7 +17,7 @@ class Notifications extends Component{
       notifications.removeNotification(i)
     },5000)
     return(
-      <div key={n.content.slice()}className="notification is-primary">
+      <div key={n.content.slice()} className={`notification is-${typeclass[n.type]}`}>
         <button className="delete"></button>  
         {n.content}
       </div>

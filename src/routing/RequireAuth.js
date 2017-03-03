@@ -30,7 +30,7 @@ const RequireAuth = (ToBeComposed)=>{
       this.checkAuth()
     }
     checkAuth(){
-      console.log('IM CHECKING AUTH')
+      console.log('IM CHECKING AUTH',this.props)
       if (!isAuthenticated()){
         console.log('WRONG OR EXPIRED')
         browserHistory.push('/dummy')
