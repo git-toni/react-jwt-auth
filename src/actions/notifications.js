@@ -11,6 +11,16 @@ const actions ={
   },
   @action addErrorNotification(msg){
     this.addNotification('error',msg)
-  }
+  },
+  @action addInfoNotification(msg){
+    this.addNotification('info',msg)
+  },
+  @action addLoading(msg){
+    ui.loading = msg
+  },
+  @action removeLoading(){
+    this.addLoading(null)
+  },
+
 }
 export default actions

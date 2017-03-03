@@ -1,12 +1,14 @@
 import React,{Component} from 'react';  
 import {observer, inject} from 'mobx-react';
 import {notifications} from '../actions'
+import {guid} from '../utils/numbers'
 
 let typeclass = {
   error: 'danger',
   info: 'primary',
   success: 'success'
 }
+
 @inject('ui') @observer
 class Notifications extends Component{
   constructor(props){
@@ -16,9 +18,10 @@ class Notifications extends Component{
     setTimeout(()=>{
       notifications.removeNotification(i)
     },5000)
+    let k = guid()
     return(
-      <div key={n.content.slice()} className={`notification is-${typeclass[n.type]}`}>
-        <button className="delete"></button>  
+      <div key={k} className={`notification is-${typeclass[n.type]}`}>
+        <button onClick={notifications.removeNotification.bind(null, i)} className="delete"></button>  
         {n.content}
       </div>
     )

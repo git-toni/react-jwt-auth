@@ -6,6 +6,7 @@ class UiStore{
     {type:'info',content:'Hola que tal'},
     {type:'success',content:'nono noasdaosd asd jashdo'},
   ]
+  @observable loading = null
 
 
   get asJS(){

@@ -4,6 +4,7 @@ import Header from './Header'
 import App from './App'
 import UserProfile from './UserProfile'
 import UserIndex from './UserIndex'
+import Loading from './Loading'
 
 export {
   Layout,
@@ -12,6 +13,7 @@ export {
   App,
   UserProfile,
   UserIndex,
+  Loading,
 }
 export default {
   Layout,
@@ -20,4 +22,5 @@ export default {
   App,
   UserProfile,
   UserIndex,
+  Loading,
 }

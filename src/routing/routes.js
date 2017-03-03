@@ -6,6 +6,11 @@ import RequireAuth from './RequireAuth'
 import RequireSelf from './RequireSelf'
 import { App, Layout, UserProfile, UserIndex } from '../components'
 
+const Dummy = (props)=>{
+  return(
+    <div>this is a dummy route</div>
+  )
+}
 
 const reqAuthSelf = R.compose(RequireAuth,RequireSelf)
 
@@ -24,10 +29,5 @@ const routes =(
   </Router>
 )
 
-const Dummy = (props)=>{
-  return(
-    <div>this is a dummy route</div>
-  )
-}
 
 export default routes

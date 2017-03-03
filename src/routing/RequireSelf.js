@@ -15,10 +15,13 @@ const RequireSelf = (ToBeComposed)=>{
     }
     check(){
       console.log('CHECKINGSLEFFFFFF',this.props)
-      isSelf(this.props.params.user_id)
+      //isSelf(this.props.params.user_id)
       if(!isSelf(this.props.params.user_id)){
         notiActions.addErrorNotification('ITS NOT SELF') 
+        browserHistory.push('/dummy')
+        return  
       }
+      notiActions.addInfoNotification('ITS ME YAY!') 
       //if (!isSelf()){
       //  console.log('WRONG OR EXPIRED')
       //  browserHistory.push('/dummy')
