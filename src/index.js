@@ -30,7 +30,7 @@ renderApp()
 
 setTimeout(()=> {
   general.changeStatus()
-  login(23,23)
+  //login(23,23)
 }, 400)
 
 

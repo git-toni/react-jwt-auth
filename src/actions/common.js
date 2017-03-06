@@ -23,3 +23,8 @@ export default {
   attrChangerValue,
   attrChangerArray,
 }
+export {
+  attrChanger,
+  attrChangerValue,
+  attrChangerArray,
+}

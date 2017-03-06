@@ -2,6 +2,9 @@ import { action } from 'mobx';
 import { ui } from '../stores'
 
 const actions ={
+  @action removeAllNotifications(){
+    ui.notifications =[]
+  },
   @action removeNotification(i){
     ui.notifications.splice(i,1)
   },
