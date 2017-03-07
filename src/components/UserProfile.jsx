@@ -10,10 +10,10 @@ class UserProfile extends Component{
   componentWillMount(){
     notiActions.removeLoading()
     notiActions.addLoading('Loading profile...')
+    reqProfile()
   }
   componentDidMount(){
     notiActions.removeLoading()
-    reqProfile()
   }
   render(){
     return(

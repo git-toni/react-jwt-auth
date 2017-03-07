@@ -7,7 +7,7 @@ class UserIndex extends Component{
     super(props)
   }
   componentDidMount(){
-    reqLogin('lol@hola.la', 3333)
+    //reqLogin('lol@hola.la', 3333)
   }
   render(){
     return(

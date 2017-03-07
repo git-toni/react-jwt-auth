@@ -66,6 +66,9 @@ function base64url(source) {
 
   return encodedSource;
 }
+function movedDate(days){
+  return Math.floor( ( (+new Date())+864e5*(days) )/1000.0 )
+}
 export{
   roundDecimals,
   moneyNum,
@@ -75,5 +78,6 @@ export{
   friendlyMoneyNum,
   //m as friendlyNum,
   mWrapper as friendlyNum,
-  base64url
+  base64url,
+  movedDate,
 }

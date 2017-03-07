@@ -2,7 +2,8 @@ import Request from './Request'
 import {buildUrl} from './Utils'
 import {session} from '../stores'
 import {common} from '../actions'
-import {guid, base64url} from '../utils/numbers'
+import {guid, base64url, movedDate} from '../utils/numbers'
+import {fakeJWT} from '../utils/auth'
 
 let GOODJWT='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwidXNlciI6IntcIm5hbWVcIjpcIkpvaG55XCIsXCJpZFwiOlwiMjNcIixcImVtYWlsXCI6XCJob2xhQGhvbGEuY29tXCJ9IiwiYWRtaW4iOnRydWUsImV4cCI6IjE1MjAwMDQwMTUifQ.ftzvi1_3C0etJaDjVqC3hFoTLV9iRzKi8PfHb-mbigQ'
 
@@ -17,16 +18,17 @@ function reqLogin(email, password){
 }
 
 function mockLogin(email, pass){
-  let u = {
+  let payload = {
     jit: guid(),
-    exp: Date.now()+ 864e5 * 800,
+    exp: movedDate(+800),
     user: {name:'John', email: email, id: 333}
   }
-  let fakeJwt = `fakeheader.${base64url(JSON.stringify(u))}.fakeenc`
+  //let fakeJwt = `fakeheader.${base64url(JSON.stringify(u))}.fakeenc`
+  let fakejwt = fakeJWT(payload)
   //let fakeJwt = `fakeheader.hoooooooola.fakeenc`
   let p = new Promise((resolve,rej)=>{
     setTimeout(()=>{
-      resolve({data:{jwt: GOODJWT} })
+      resolve({data:{jwt: fakejwt} })
     }, 2000)
   })
   return p

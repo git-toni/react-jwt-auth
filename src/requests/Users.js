@@ -1,6 +1,11 @@
 import Request from './Request'
+import {buildUrl} from './Utils'
 function reqProfile(userId){
-  new Request('get', 'http://localhost:3000/posts',{name:'jonny'}) 
+  return new Request('get', buildUrl(['users',userId,'profile'])) 
+  .then(res=>{
+    console.log('result of user profile',res)   
+    return res
+  })
 }
 
 export {

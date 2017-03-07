@@ -31,7 +31,6 @@ test('RequireSelf renders when self matched payload', () => {
   let app = mount(
     <Decorated params={params} />
     );
-  console.log('app ', app.html())
   expect(app.html()).toMatch('Hello')
   expect(ui.notifications.slice().length).toEqual(0)
   //expect(ui.notifications.slice()[0].type).toEqual('info')
@@ -47,6 +46,18 @@ test('RequireSelf renders NULL when self not matching payload', () => {
   }
   let myjwt = fakeJWT(payload)
   sessionChg('token',myjwt)
+  let params = { user_id: 99 }
+  let Decorated = RequireSelf(App)
+
+  let app = mount(
+    <Decorated params={params} />
+    );
+  expect(app.html()).toEqual(null)
+  expect(ui.notifications.slice().length).toEqual(1)
+  expect(ui.notifications.slice()[0].type).toEqual('error')
+});
+
+test('RequireSelf renders NULL when empty session token', () => {
   let params = { user_id: 99 }
   let Decorated = RequireSelf(App)
 

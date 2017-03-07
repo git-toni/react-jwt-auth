@@ -4,6 +4,7 @@ const ROOT_URL = 'http://localhost:3000/'
 
 
 function buildUrl(paths){
+  // Works with both array of strings and just string
   //if(Array.isArray(paths)){
   //  return ROOT_URL + R.join('/')(paths)
   //}
