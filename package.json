@@ -57,7 +57,7 @@
     "webpack-dev-server": "^2.4.1"
   },
   "jest":{
-    "testURL":"http://localhost:8080/",
+    "testURL":"http://localhost:3000/",
     "setupFiles": ["./__tests__/jestsetup.js"]
   }
 
