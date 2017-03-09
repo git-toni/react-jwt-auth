@@ -1,10 +1,19 @@
 import {getUrlPath} from '../src/utils/url'
-import {userProfile} from './fakeResponses'
+import {goodEmail, badEmail, goodPassword, userProfile, goodLogin, badLogin} from './fakeResponses'
 
 function responses(method,path,data){
   switch(method){
     case 'post':
-      return true
+      if(!!(/login$/.exec(path))){
+        //console.log('reaching login',path,data)
+        if(data.auth.email === goodEmail && data.auth.password === goodPassword){
+          return {status: 200, data: goodLogin}
+        }
+        else{
+          return {status: 401, data: {msg: 'Incorrect Login'}}
+        }
+        //return {id: 4, name:'John', email:'john@gmail.com', favorites:[]}
+      }
     case 'get':
       if(!!(/users\/\d+\/profile/.exec(path))){
         return {status: 200, data: userProfile}
@@ -19,12 +28,11 @@ function responses(method,path,data){
   }
 }
 function axios({method, url, data, headers}){
-  //console.log('axios url',url)
-  //console.log('path', path,resp)
   return new Promise((resolve,reject)=>{
     try{
       let path = getUrlPath(url)
       let resp = responses(method, url, data)
+      //console.log('path', url,resp)
       //resolve(resp)
       if(resp.status <= 300 && resp.status >= 200){
         resolve(resp)

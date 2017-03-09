@@ -58,7 +58,8 @@
   },
   "jest":{
     "testURL":"http://localhost:3000/",
-    "setupFiles": ["./__tests__/jestsetup.js"]
+    "setupFiles": ["./__tests__/jestsetup.js"],
+    "testPathIgnorePatterns":["setup"]
   }
 
 }
