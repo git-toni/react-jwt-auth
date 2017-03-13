@@ -31,6 +31,7 @@
     "babel-preset-react": "^6.23.0",
     "babel-preset-stage-2": "^6.22.0",
     "babel-register": "^6.23.0",
+    "bulma": "^0.3.2",
     "cross-env": "^3.1.4",
     "crypto-js": "^3.1.9-1",
     "css-loader": "^0.26.2",
@@ -56,10 +57,13 @@
     "webpack": "^2.2.1",
     "webpack-dev-server": "^2.4.1"
   },
-  "jest":{
-    "testURL":"http://localhost:3000/",
-    "setupFiles": ["./__tests__/jestsetup.js"],
-    "testPathIgnorePatterns":["setup"]
+  "jest": {
+    "testURL": "http://localhost:3000/",
+    "setupFiles": [
+      "./__tests__/jestsetup.js"
+    ],
+    "testPathIgnorePatterns": [
+      "setup"
+    ]
   }
-
 }

@@ -25,6 +25,7 @@ test('reqLogin correctly', () => {
   .then((res)=>{
     expect(res.data).toHaveProperty('jwt')
     expect(session.token).toEqual(res.data.jwt)
+    //console.log(session.userData)
   })
 });
 test('reqLogin badly', () => {

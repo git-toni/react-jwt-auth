@@ -4,7 +4,10 @@ import Header from './Header'
 import App from './App'
 import UserProfile from './UserProfile'
 import UserIndex from './UserIndex'
+import UserSettings from './UserSettings'
 import Loading from './Loading'
+import Modal from './Modal'
+import Logout from './Logout'
 
 export {
   Layout,
@@ -13,7 +16,10 @@ export {
   App,
   UserProfile,
   UserIndex,
+  UserSettings,
   Loading,
+  Modal,
+  Logout,
 }
 export default {
   Layout,
@@ -22,5 +28,8 @@ export default {
   App,
   UserProfile,
   UserIndex,
+  UserSettings,
   Loading,
+  Modal,
+  Logout,
 }

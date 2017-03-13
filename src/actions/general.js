@@ -8,6 +8,9 @@ const actions ={
   },
   @action changeStatus(){
     session.status = 'DOOOONE' 
+  },
+  @action logOut(){
+    session.token = null
   }
 }
 

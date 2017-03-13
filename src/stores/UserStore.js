@@ -2,7 +2,7 @@ import {observable,  computed} from 'mobx';
 
 class UserStore{
   @observable info = null
-  @observable settings = {}
+  @observable settings = null
   @observable favorites = []
 
   get asJS(){

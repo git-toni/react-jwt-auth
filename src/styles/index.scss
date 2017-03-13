@@ -1,1 +1,22 @@
+@import "~bulma/bulma";
 @import 'notifications.scss';
+@import 'menu-dropdown.scss';
+@import 'new-modifiers.scss';
+@import 'form.scss';
+
+//.text-primary{
+//  color: $primary;
+//}
+@each $name, $pair in $colors{
+  $color: nth($pair, 1);
+  .text-#{$name}{
+    color: $color;
+  }
+}
+
+.text-large{
+  font-size: $size-large;
+}
+.text-medium{
+  font-size: $size-medium;
+}

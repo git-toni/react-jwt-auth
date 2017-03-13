@@ -14,11 +14,13 @@ function reqLogin(email, password){
   return new Request('post', buildUrl('login'),{auth:{email, password}}, false) 
   .then(res =>{
     chgSession('token',res.data.jwt)
+    notiActions.removeModal() 
     return res
   })
   .catch(res =>{
     chgSession('token',null)
     notiActions.addErrorNotification('Wrong Login') 
+    notiActions.removeModal() 
   })
 }
 

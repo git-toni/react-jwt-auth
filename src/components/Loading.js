@@ -11,7 +11,6 @@ class Loading extends Component{
     //     <i className="fa fa-spinner fa-spin"></i>
     //     </span>
     let {ui:{loading}} = this.props
-    console.log('loading is', loading)
     let isLoading = !!loading ? 'is-loading' : ''
     return(
       <div id='loading'> 

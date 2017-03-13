@@ -1,7 +1,7 @@
 import React,{Component} from 'react';  
 import { IndexRoute, Router, Route, Link, browserHistory } from 'react-router'
 
-import {Header, Notifications, Loading} from './index'
+import {Modal, Header, Notifications, Loading} from './index'
 
 class Layout extends Component{
   constructor(props){
@@ -17,6 +17,8 @@ class Layout extends Component{
         <section className="section">
           {this.props.children}
         </section>
+        <Modal />
+
       </div>
       )
   }

@@ -43,6 +43,11 @@ function fakeJWT(payload){
   let wordArray= CryptoJS.enc.Utf8.parse(JSON.stringify(payload))
   return `fakeHeader${Math.floor(Math.random()*2e5)}.${base64url(wordArray)}.fakeTail`
 }
+function currentUser(){
+  return isAuthenticated() 
+    ? session.userName
+    : null
+}
 
 export {
   isAuthenticated,

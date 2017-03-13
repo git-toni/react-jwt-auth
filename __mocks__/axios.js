@@ -1,23 +1,24 @@
 import {getUrlPath} from '../src/utils/url'
-import {goodEmail, badEmail, goodPassword, userProfile, goodLogin, badLogin} from './fakeResponses'
+import fakeResp,{goodEmail, badEmail, goodPassword, userProfile, goodLogin, badLogin} from './fakeResponses'
 
 function responses(method,path,data){
   switch(method){
     case 'post':
       if(!!(/login$/.exec(path))){
-        //console.log('reaching login',path,data)
         if(data.auth.email === goodEmail && data.auth.password === goodPassword){
           return {status: 200, data: goodLogin}
         }
         else{
           return {status: 401, data: {msg: 'Incorrect Login'}}
         }
-        //return {id: 4, name:'John', email:'john@gmail.com', favorites:[]}
       }
     case 'get':
       if(!!(/users\/\d+\/profile/.exec(path))){
         return {status: 200, data: userProfile}
-        //return {id: 4, name:'John', email:'john@gmail.com', favorites:[]}
+      }
+      if(!!(/users/.exec(path))){
+        //console.log('entering axios fake')
+        return {status: 200, data: fakeResp.userIndex}
       }
     default:
       let r = { status: 404, statusText: 'Not found', data:{msg:'Some error description'}}

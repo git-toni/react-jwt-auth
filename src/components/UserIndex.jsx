@@ -1,23 +1,50 @@
 import React,{Component} from 'react';  
 import { IndexRoute, Router, Route, Link, browserHistory } from 'react-router'
-import {reqLogin} from '../requests/Auth'
+import {reqUserIndex} from '../requests/Users'
+import {pathUserProfile} from '../utils/url'
+import notiActions from '../actions/notifications'
 
 class UserIndex extends Component{
   constructor(props){
     super(props)
+    this.state={
+      users: null
+    }
+    this.renderUserList = this.renderUserList.bind(this)
+  }
+  componentWillMount(){
+    notiActions.removeLoading()
+    notiActions.addLoading('Retrieving User list')
+    reqUserIndex()
+    .then(res=>{
+      this.setState({users:res})
+    })
   }
   componentDidMount(){
-    //reqLogin('lol@hola.la', 3333)
+    notiActions.removeLoading()
+  }
+  renderUserItem(i){
+    return(
+      <li key={`User${i.id}`} className='box'> <Link to={pathUserProfile(i.id)} className="nav-item">{i.name}</Link></li>
+    )
+  }
+  renderUserList(){
+    if(!!this.state.users){
+      return this.state.users.map(this.renderUserItem)
+    }
+    else{
+      return <li> Empty </li>
+    }
   }
   render(){
     return(
       <div id='user-profile'>
-        USERS INDEX
+        <span className='title is-3'>Users Index</span>
         <br/>
-        <Link to='/users/22' className="nav-item is-tab is-hidden-mobile">User 22</Link>
-        <Link to='/users/23' className="nav-item is-tab is-hidden-mobile">User 23</Link>
-        <br/>
-        <Link to='/users/asdfsdf' className="nav-item is-tab is-hidden-mobile">User asdsfdf</Link>
+        {}
+        <ul className="user-list container has-margin-top-2">
+          {this.renderUserList()}
+        </ul>
       </div>
       )
   }

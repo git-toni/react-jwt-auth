@@ -4,11 +4,13 @@ import App from '../src/components/App';
 
 test('App renders', () => {
   let name = 'John'
+  let email = 'John'
   let status = 'Pending'
   let session ={
     userData:{
       name:'John'
     },
+    userName: 'John',
     status: 'Pending'
   }
   const app = shallow(

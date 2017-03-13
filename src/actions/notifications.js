@@ -24,6 +24,12 @@ const actions ={
   @action removeLoading(){
     this.addLoading(null)
   },
+  @action addModal(name){
+    ui.modal = name
+  },
+  @action removeModal(){
+    ui.modal = null
+  },
 
 }
 export default actions
